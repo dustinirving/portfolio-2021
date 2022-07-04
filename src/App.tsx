@@ -1,26 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import MainContent from './components/MainContent';
+import Header from './components/Header';
+import { Colors, CSSResets, useSelect } from '@dustinirving/component-library';
 
-function App() {
+const options: { [value: string]: { text: string } } = {
+  system: { text: 'System' },
+  light: { text: 'Light' },
+  dark: { text: 'Dark' },
+};
+
+const App: React.FC = () => {
+  const selectProps = useSelect({ initialSelectedValue: 'system', options });
+  const { selectedValue } = selectProps;
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Colors mode={selectedValue as 'light' | 'dark' | 'system'} />
+      <CSSResets />
+      <Header selectProps={selectProps} />
+      <MainContent />
     </div>
   );
-}
+};
 
 export default App;
