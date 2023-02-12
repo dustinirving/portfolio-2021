@@ -1,6 +1,7 @@
 import MainContent from './components/MainContent';
 import Header from './components/Header';
-import { Colors, CSSResets, useSelect } from '@dustinirving/component-library';
+import useDarkMode from './hooks/useDarkMode';
+// import { Colors, CSSResets, useSelect } from '@dustinirving/component-library';
 
 const options: { [value: string]: { text: string } } = {
   system: { text: 'System' },
@@ -9,13 +10,12 @@ const options: { [value: string]: { text: string } } = {
 };
 
 const App: React.FC = () => {
-  const selectProps = useSelect({ initialSelectedValue: 'system', options });
-  const { selectedValue } = selectProps;
+  // const selectProps = useSelect({ initialSelectedValue: 'system', options });
+  // const { selectedValue } = selectProps;
+  const { isDarkMode, setIsDarkMode } = useDarkMode();
   return (
-    <div className="App">
-      <Colors mode={selectedValue as 'light' | 'dark' | 'system'} />
-      <CSSResets />
-      <Header selectProps={selectProps} />
+    <div className={`flex flex-col ${isDarkMode && 'dark'}`}>
+      <Header setIsDarkMode={setIsDarkMode} isDarkMode={isDarkMode} />
       <MainContent />
     </div>
   );

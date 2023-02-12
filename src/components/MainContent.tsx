@@ -1,35 +1,35 @@
 import React from 'react';
 import styled from 'styled-components';
+import About from './About';
+import Experience from './Experience';
+import Projects from './Projects';
+import Education from './Education';
 
 const sections = [
-  { title: 'About', id: 'about' },
-  { title: 'Experience', id: 'experience' },
-  { title: 'Projects', id: 'projects' },
-  { title: 'Eduction', id: 'education' },
+  { id: 'about', component: <About /> },
+  { title: 'Experience', id: 'experience', component: <Experience /> },
+  { title: 'Projects', id: 'projects', component: <Projects /> },
+  { title: 'Education', id: 'education', component: <Education /> },
 ];
+
 interface MainContentProps {}
 const MainContent: React.FC<MainContentProps> = (props) => {
   return (
-    <Wrapper>
-      {sections.map(({ id, title }) => (
-        <Section key={id}>
-          <H2 id={id}>{title}</H2>
-        </Section>
-      ))}
-    </Wrapper>
+    <div className="dark:bg-gray-800 bg-slate-50">
+      <div className="md:container md:mx-auto px-2">
+        {sections.map(({ id, title, component }) => (
+          <section key={id}>
+            {title && (
+              <h2 className="lg:text-3xl text-2xl font-bold dark:text-white p-5 mb-5 text-center">
+                {title}
+              </h2>
+            )}
+            {component}
+          </section>
+        ))}
+      </div>
+    </div>
   );
 };
-
-const Wrapper = styled.div`
-  background: #f8f8f8;
-`;
-
-const Section = styled.section`
-  height: 100vh;
-`;
-
-const H2 = styled.h2`
-  font-size: 18px;
-`;
 
 export default MainContent;
