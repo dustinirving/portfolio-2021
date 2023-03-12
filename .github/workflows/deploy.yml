@@ -18,7 +18,7 @@ jobs:
           node-version: 16.x
       - name: Install and Build 🔧
         run: |
-          git config --global user.email dustin_irving@gmail.com
+          git config --global user.email dustin.irving@gmail.com
           git config --global user.name dustinirving
           git remote set-url origin https://dustinirving:${{ secrets.GH_TOKEN }}@github.com/dustinirving/portfolio_v2.git
           npm ci
