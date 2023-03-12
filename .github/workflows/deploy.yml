@@ -20,7 +20,7 @@ jobs:
         run: |
           git config --global user.email dustin.irving@gmail.com
           git config --global user.name dustinirving
-          git remote set-url origin https://dustinirving:${{ secrets.GH_TOKEN }}@github.com/dustinirving/portfolio_v2.git
+          git remote set-url origin https://dustinirving:${{ secrets.GH_TOKEN }}@github.com/dustinirving/portfolio-v2.git
           npm ci
           npm run build
           npm run deploy
