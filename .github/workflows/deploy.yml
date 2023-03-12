@@ -22,4 +22,5 @@ jobs:
           npm run buld
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
-        with: dist
+        with:
+          folder: dist
