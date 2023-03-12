@@ -9,7 +9,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "styled-components": "^5.3.5",
-    "tailwind-component-library": "file:../tailwind-component-library/tailwind-component-library-1.0.0.tgz"
+    "tailwind-component-library": "^1.0.0"
   },
   "scripts": {
     "dev": "vite",

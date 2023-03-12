@@ -4,7 +4,9 @@ import Project from './Project';
 const Projects = () => {
   return (
     <div className="flex justify-center">
-      <div className="grid gap-8 grid-cols-1 md:grid-cols-2">
+      <div className="grid gap-8 grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
+        <Project />
+        <Project />
         <Project />
         <Project />
         <Project />
