@@ -51,9 +51,10 @@ export default function Header(props: HeaderProps) {
           {icons.map(({ path, href, tooltip }) => (
             <a href={href} target="_blank" rel="noopener noreferrer" className="mr-3">
               <Tooltip text={tooltip}>
-                <IconButton className="flex items-center" key={path} type="icon">
+                {/* <IconButton className="flex items-center" key={path} type="icon">
                   <Icon path={path} color="currentColor" className="w-[20px] h-[20px]" />
-                </IconButton>
+                </IconButton> */}
+                Icon
               </Tooltip>
             </a>
           ))}
