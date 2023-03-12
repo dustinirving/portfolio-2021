@@ -1,8 +1,11 @@
 import { IconButton, Navbar, Tooltip } from 'tailwind-component-library';
-import Icon from '@mdi/react';
+import IconImport from '@mdi/react';
 import { mdiGithub, mdiLinkedin, mdiFileDocument, mdiEmail } from '@mdi/js';
 import useTheme from '../hooks/useTheme';
 import resume from '../resources/Resume.pdf';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+const Icon = IconImport.default ? IconImport.default : IconImport;
 interface HeaderProps {
   activeNavItemId: string;
   setActiveNavItemId: any;
