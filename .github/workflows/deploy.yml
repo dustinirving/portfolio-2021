@@ -10,17 +10,23 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout 🛎️
+      - name: Checkout
         uses: actions/checkout@v3
       - name: Setup Node 16.x
         uses: actions/setup-node@v3
         with:
           node-version: 16.x
-      - name: Install and Build 🔧
-        run: |
-          git config --global user.email dustin.irving@gmail.com
-          git config --global user.name dustinirving
-          git remote set-url origin https://dustinirving:${{ secrets.GH_TOKEN }}@github.com/dustinirving/portfolio-v2.git
-          npm ci
-          npm run build
-          npm run deploy
+      - name: Installation
+        run: npm ci
+      - name: Build
+        run: npm run build
+      - name: Deploy
+        uses: dustinirving/deploy-s3@v1.0.1
+        with:
+          buildFolder: 'build'
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_REGION: ${{ secrets.AWS_REGION }}
+          S3_BUCKET: ${{ secrets.S3_BUCKET }}
+          CLOUDFRONT_DISTRIBUTION_ID: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
