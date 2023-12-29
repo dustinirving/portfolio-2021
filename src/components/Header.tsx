@@ -1,11 +1,8 @@
-import { IconButton, Navbar, Tooltip } from 'tailwind-component-library';
-import IconImport from '@mdi/react';
+import { IconButton, Navbar, Tooltip } from '@dustinirving/react-component-library';
+import Icon from '@mdi/react';
 import { mdiGithub, mdiLinkedin, mdiFileDocument, mdiEmail } from '@mdi/js';
 import useTheme from '../hooks/useTheme';
 import resume from '../resources/Resume.pdf';
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-const Icon = IconImport.default ? IconImport.default : IconImport;
 interface HeaderProps {
   activeNavItemId: string;
   setActiveNavItemId: any;
@@ -48,14 +45,19 @@ export default function Header(props: HeaderProps) {
   ];
 
   return (
-    <div className="flex-initial">
-      <Navbar navItems={navItems} activeItemId={activeNavItemId} position="left" fixed>
-        <div className="flex items-center">
+    <div className="flex-initial w-full">
+      <Navbar navItems={navItems} activeItemId={activeNavItemId} fixed>
+        <Navbar.Items>
+          {navItems.map((navItem) => (
+            <Navbar.Item {...navItem} active={navItem.id === activeNavItemId} />
+          ))}
+        </Navbar.Items>
+        <div className="flex items-center mr-2">
           {icons.map(({ path, href, tooltip }) => (
             <a href={href} target="_blank" rel="noopener noreferrer" className="mr-3">
               <Tooltip text={tooltip}>
-                <IconButton className="flex items-center" key={path} type="icon">
-                  <Icon path={path} color="currentColor" className="w-[20px] h-[20px]" />
+                <IconButton className="flex items-center" key={path}>
+                  <Icon path={path} className="w-[20px] h-[20px] .icon" />
                 </IconButton>
               </Tooltip>
             </a>
@@ -64,14 +66,12 @@ export default function Header(props: HeaderProps) {
             <IconButton
               className="flex items-center"
               onClick={() => updateTheme(theme === 'dark' ? 'light' : 'dark')}
-              type="icon"
             >
               {theme === 'dark' ? (
                 <svg
                   aria-hidden="true"
                   id="theme-toggle-light-icon"
                   className="w-[20px] h-[20px]"
-                  fill="currentColor"
                   viewBox="0 0 20 20"
                   xmlns="http://www.w3.org/2000/svg"
                 >

@@ -30,7 +30,7 @@ export default function Section(props: SectionProps) {
       className="min-h-[100vh] flex items-center justify-center flex-col"
     >
       {title && (
-        <h2 className="lg:text-3xl text-2xl font-bold dark:text-white p-5 mb-5 text-center">
+        <h2 className="lg:text-3xl text-2xl font-semibold dark:text-white p-5 mb-5 text-center">
           {title}
         </h2>
       )}

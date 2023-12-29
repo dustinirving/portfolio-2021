@@ -1,12 +1,5 @@
 import React from 'react';
-import {
-  Link,
-  Timeline,
-  TimelineItem,
-  TimelineParagraph,
-  TimelineTime,
-  TimelineTitle,
-} from 'tailwind-component-library';
+import { Link, Timeline } from '@dustinirving/react-component-library';
 
 const educationItems = [
   {
@@ -32,14 +25,14 @@ export default function Education() {
   return (
     <Timeline>
       {educationItems.map((item) => (
-        <TimelineItem>
-          <TimelineTime>{item.timeAndPlace}</TimelineTime>
-          <TimelineTitle>
+        <Timeline.Item>
+          <Timeline.Time>{item.timeAndPlace}</Timeline.Time>
+          <Timeline.Title>
             {item.title}
             <Link href={item.institutionLink}>{item.institution}</Link>
-          </TimelineTitle>
-          <TimelineParagraph>{item.description}</TimelineParagraph>
-        </TimelineItem>
+          </Timeline.Title>
+          <Timeline.Paragraph>{item.description}</Timeline.Paragraph>
+        </Timeline.Item>
       ))}
     </Timeline>
   );

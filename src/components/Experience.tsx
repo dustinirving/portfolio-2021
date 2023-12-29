@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'tailwind-component-library';
+import { Link } from '@dustinirving/react-component-library';
 
 const Experience: React.FC = () => {
   return (

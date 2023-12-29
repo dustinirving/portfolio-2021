@@ -1,3 +1,4 @@
-/* body {
+body {
   background-color: var(--theme-background-color);
-} */
+  color: var(--theme-foreground-color);
+}

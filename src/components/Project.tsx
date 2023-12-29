@@ -1,16 +1,16 @@
 import React from 'react';
-import { Card, CardMedia, CardContent, CardTitle, CardParagraph } from 'tailwind-component-library';
+import { Card } from '@dustinirving/react-component-library';
 
 interface ProjectProps {}
 
 const Project: React.FC<ProjectProps> = () => {
   return (
     <Card>
-      <CardMedia image="https://flowbite.com/docs/images/blog/image-1.jpg" />
-      <CardContent>
-        <CardTitle>Title</CardTitle>
-        <CardParagraph>Content</CardParagraph>
-      </CardContent>
+      <Card.Media image="https://flowbite.com/docs/images/blog/image-1.jpg" />
+      <Card.Content>
+        <Card.Title>Title</Card.Title>
+        <Card.Paragraph>Content</Card.Paragraph>
+      </Card.Content>
     </Card>
   );
 };
