@@ -1,7 +1,7 @@
 import MainContent from './components/MainContent';
 import Header from './components/Header';
 import { useState } from 'react';
-import '@dustinirving/react-component-library/theme.css';
+import '@dustinirving/react-component-library/themes.css';
 // import { Colors, CSSResets, useSelect } from '@dustinirving/component-library';
 
 const options: { [value: string]: { text: string } } = {

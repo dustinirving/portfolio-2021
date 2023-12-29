@@ -1,9 +1,8 @@
 import React from 'react';
-import styled from 'styled-components';
 import Dustin from '../images/dustin.jpg';
 const About: React.FC = () => {
   return (
-    <Container className="flex justify-center items-center">
+    <div className="flex justify-center items-center" style={{ height: 'calc(100vh - 60px)' }}>
       <div>
         <h1 className="text-4xl font-bold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white text-center">
           Dustin Irving
@@ -25,12 +24,8 @@ const About: React.FC = () => {
           />
         </div>
       </div>
-    </Container>
+    </div>
   );
 };
-
-const Container = styled.div`
-  height: calc(100vh - 60px);
-`;
 
 export default About;
